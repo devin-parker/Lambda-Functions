@@ -32,7 +32,6 @@ function process(event, callback) {
         var message = { 
             token: ACCESS_TOKEN,
             channel: event.user,
-        //    thread_ts:event.ts,
             text: text,
             username: 'Slack Police',
             icon_emoji:':male-police-officer:',
