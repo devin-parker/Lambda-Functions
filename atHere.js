@@ -28,25 +28,25 @@ function process(event, callback) {
     // test the message for a match and not a bot
     if (!event.bot_id && /(<!here>|<!channel>)/ig.test(event.text) && patrolRooms.includes(event.channel)) {
         //Slack bot sends User warning message
-        var text = `Hi, <@${event.user}>. Please refrain from using <!here> in <#${event.channel}>`;
-        var message = { 
+         var text = `Hi, <@${event.user}>. Please do not use ` + '`@here` in here.';
+         var message = { 
             token: ACCESS_TOKEN,
-            channel: event.user,
+            channel: event.channel,
             text: text,
-            username: 'Slack Police',
-            icon_emoji:':male-police-officer:',
+            username: 'Slack Helper',
+            icon_emoji:':male-office-worker:',
         };
 
         //Slackbot calls out user in channel or thread
-        // var text = `Hi, <@${event.user}> please no @-here in here`;
+        // var text = `Hi, <@${event.user}>. Please do not use ` + '`@here` in here.';
         // var message = { 
         //     token: ACCESS_TOKEN,
         //     channel: event.channel,
         //  // engage thread_ts to move message to thread
         //     thread_ts:event.ts,
         //     text: text,
-        //     username: 'Slack Police',
-        //     icon_emoji:':male-police-officer:',
+        //     username: 'Slack Helper',
+        //     icon_emoji:':male-office-worker:',
         // };
 
         var query = qs.stringify(message); // prepare the querystring
