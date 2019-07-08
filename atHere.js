@@ -28,7 +28,7 @@ function process(event, callback) {
     // test the message for a match and not a bot
     if (!event.bot_id && /(<!here>|<!channel>)/ig.test(event.text) && patrolRooms.includes(event.channel)) {
         //Slack bot sends User warning message
-         var text = `Hi, <@${event.user}>. Please do not use ` + '`@here` in here.';
+         var text = `Hi, <@${event.user}>. Please do not use ` + '`@here` ' + `in <#${event.channel}>.`;
          var message = { 
             token: ACCESS_TOKEN,
             channel: event.channel,
